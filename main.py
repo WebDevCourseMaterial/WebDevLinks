@@ -23,28 +23,39 @@ jinja_env = jinja2.Environment(
   loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
   autoescape=True)
 
-USERNAME = "fisherds"
+USERNAME = "yourusername"
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_env.get_template("templates/links.html")
-        # Tuple format is ("Display Name", is_this_a_folder_of_exercises, link or static folder path, number of exercises in folder)
-        appengine_units = []
-        appengine_units.append(("MovieQuotes", False, "http://" + USERNAME + "-movie-quotes.appspot.com"))
-        appengine_units.append(("Weatherpics", False, "http://" + USERNAME + "-weatherpics.appspot.com"))
-        appengine_units.append(("Guestbook", False, "http://" + USERNAME + "-guestbook.appspot.com"))
-        appengine_units.append(("GradeRecorder", False, "http://" + USERNAME + "-grade-recorder.appspot.com"))
-        appengine_units.append(("Dice with Friends", False, "http://" + USERNAME + "-dice-with-friends.appspot.com"))
-        css_units = []
-        css_units.append(("HTML Basics - Tag Practice", True, "/static/HtmlBasics/tagPractice", 10))
-        js_units = []
-        endpoints_angular_ajax_units = []
+        # Tuple format is ("Display Name", is_this_a_static_folder_of_exercises, link or static folder path, number of exercises in folder)
+
+        appengine_track = []
+        appengine_track.append(("MovieQuotes", False, "http://" + USERNAME + "-movie-quotes.appspot.com"))
+        appengine_track.append(("Weatherpics", False, "http://" + USERNAME + "-weatherpics.appspot.com"))
+        appengine_track.append(("Guestbook", False, "http://" + USERNAME + "-guestbook.appspot.com"))
+        appengine_track.append(("GradeRecorder", False, "http://" + USERNAME + "-grade-recorder.appspot.com"))
+        appengine_track.append(("Dice with Friends", False, "http://" + USERNAME + "-dice-with-friends.appspot.com"))
+
+        css_track = []
+        css_track.append(("HTML Basics - Tag Practice", True, "/static/HtmlBasics/tagPractice", 10))
+
+        js_track = []
+
+        endpoints_angular_ajax_track = []
+
+        project = []
+        project.append(("Product Idea Sheet", False, "http://add_google_doc_url"))
+        project.append(("Ninja Mock", False, "http://add_ninja_mock_url"))
+        project.append(("Final Product", False, "http://add_yourproject_link"))
+
         tracks = []
-        # Tuple format is ("Track name", units array)
-        tracks.append(("AppEngine Track", appengine_units))
-        tracks.append(("CSS Track", css_units))
-        tracks.append(("JavaScript Track", js_units))
-        tracks.append(("Endpoints Track", endpoints_angular_ajax_units))
+        # Tuple format is ("Track name", List of links)
+        tracks.append(("AppEngine Track", appengine_track))
+        tracks.append(("CSS Track", css_track))
+        tracks.append(("JavaScript Track", js_track))
+        tracks.append(("Endpoints Track", endpoints_angular_ajax_track))
+        tracks.append(("Project", project))
         self.response.out.write(template.render({"username": USERNAME, "tracks": tracks}))
 
 app = webapp2.WSGIApplication([
