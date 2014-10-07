@@ -33,12 +33,13 @@ class MainHandler(webapp2.RequestHandler):
         appengine_track = []
         appengine_track.append(("MovieQuotes", False, "http://" + USERNAME + "-movie-quotes.appspot.com"))
         appengine_track.append(("Weatherpics", False, "http://" + USERNAME + "-weatherpics.appspot.com"))
+        appengine_track.append(("Exam 1 - (Exam title)", False, "http://" + USERNAME + "-(exam-title).appspot.com"))
         appengine_track.append(("Guestbook", False, "http://" + USERNAME + "-guestbook.appspot.com"))
         appengine_track.append(("GradeRecorder", False, "http://" + USERNAME + "-grade-recorder.appspot.com"))
         appengine_track.append(("Dice with Friends", False, "http://" + USERNAME + "-dice-with-friends.appspot.com"))
 
         css_track = []
-        css_track.append(("HTML Basics - Tag Practice", True, "/static/HtmlBasics/tagPractice", 10))
+        css_track.append(("HTML Basics - Tag Practice", True, "/static/HtmlBasics/tagPractice", 10)) # These links won't work yet.  That's ok.
 
         js_track = []
 
