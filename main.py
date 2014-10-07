@@ -47,6 +47,12 @@ class MainHandler(webapp2.RequestHandler):
         project = []
         project.append(("Product Idea Sheet", False, "http://add_google_doc_url"))
         project.append(("Ninja Mock", False, "http://add_ninja_mock_url"))
+        project.append(("Mobile Ninja Mock", False, "http://add_ninja_mock_url"))
+        project.append(("Datastore Model", False, "http://add_google_doc_url"))
+        project.append(("Sprint 0", False, "http://add_google_doc_url"))
+        project.append(("Sprint 1", False, "http://add_google_doc_url"))
+        project.append(("Sprint 2", False, "http://add_google_doc_url"))
+        project.append(("Sprint 3", False, "http://add_google_doc_url"))
         project.append(("Final Product", False, "http://add_yourproject_link"))
 
         tracks = []
