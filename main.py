@@ -1,19 +1,3 @@
-#!/usr/bin/env python
-#
-# Copyright 2007 Google Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-#
 import os
 
 import jinja2
@@ -39,21 +23,19 @@ class MainHandler(webapp2.RequestHandler):
         appengine_track.append(("Dice with Friends", False, "http://" + USERNAME + "-dice-with-friends.appspot.com"))
 
         css_track = []
-        css_track.append(("HTML Basics - Tag Practice", True, "/static/HtmlBasics/tagPractice", 10)) # These links won't work yet.  That's ok.
+        css_track.append(("HTML Basics - Tag Practice", True, "/static/HtmlBasics/tagPractice", 10))  # These links won't work yet.  That's ok.
 
         js_track = []
 
-        endpoints_angular_ajax_track = []
+        endpoints_ajax_track = []
 
         project = []
-        project.append(("Product Idea Sheet", False, "http://add_google_doc_url"))
-        project.append(("Ninja Mock", False, "http://add_ninja_mock_url"))
-        project.append(("Mobile Ninja Mock", False, "http://add_ninja_mock_url"))
-        project.append(("Datastore Model", False, "http://add_google_doc_url"))
-        project.append(("Sprint 0", False, "http://add_google_doc_url"))
-        project.append(("Sprint 1", False, "http://add_google_doc_url"))
-        project.append(("Sprint 2", False, "http://add_google_doc_url"))
-        project.append(("Sprint 3", False, "http://add_google_doc_url"))
+        project.append(("Product Idea Sheets", False, "http://add_google_doc_url"))
+        project.append(("Mocks", False, "http://add_mock_url"))
+        project.append(("Project Planning doc", False, "http://add_google_doc_url"))
+        project.append(("Source code", False, "http://add_github_or_ada_url"))
+        project.append(("Sprint Planning doc", False, "http://add_google_doc_url"))
+        project.append(("Technical documentation", False, "http://add_github_or_ada_url"))
         project.append(("Final Product", False, "http://add_yourproject_link"))
 
         tracks = []
@@ -61,7 +43,7 @@ class MainHandler(webapp2.RequestHandler):
         tracks.append(("AppEngine Track", appengine_track))
         tracks.append(("CSS Track", css_track))
         tracks.append(("JavaScript Track", js_track))
-        tracks.append(("Endpoints Track", endpoints_angular_ajax_track))
+        tracks.append(("Endpoints Track", endpoints_ajax_track))
         tracks.append(("Project", project))
         self.response.out.write(template.render({"username": USERNAME, "tracks": tracks}))
 
