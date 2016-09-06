@@ -36,6 +36,7 @@ class MainHandler(webapp2.RequestHandler):
         project.append(("Source code", False, "http://add_github_or_ada_url"))
         project.append(("Sprint Planning doc", False, "http://add_google_doc_url"))
         project.append(("Technical documentation", False, "http://add_github_or_ada_url"))
+        project.append(("YouTube Video", False, "http://add_youtube_url"))
         project.append(("Final Product", False, "http://add_yourproject_link"))
 
         tracks = []
